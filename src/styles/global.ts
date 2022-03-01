@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         --background:#f0f2f5;
         --red:#E52E4D;
+        --green:#33CC95;
         --blue:#5429CC;
 
         --blue-light:#6933FF;
@@ -34,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
     body{
-        background: (--background);
+        background: var(--background);
         -webkit-font-smooting: antialiased;
         }
     
@@ -43,6 +44,7 @@ export const GlobalStyle = createGlobalStyle`
 
         font-family: 'Poppins',sans-serif;
         font-weight: 400;
+        
         
     }
 
