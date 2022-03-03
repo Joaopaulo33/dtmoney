@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { NewTrasactionModal} from './components/NewTrasactionModal'
 
 
 
@@ -11,7 +12,7 @@ import { useState } from 'react';
 //   font-size: 64px;
 //   color:#8257e6;
 //   `
-
+Modal.setAppElement('#root');
 
 export function App() {
 
@@ -29,10 +30,11 @@ function handleCloseNewTransactionModal(){
     <>
     <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
     <Dashboard/>
-    <Modal 
-      isOpen={isNewTrasactionModalOpen}
-      onRequestClose={handleCloseNewTransactionModal}>
-    </Modal>
+    
+    <NewTrasactionModal 
+    isOpen={isNewTrasactionModalOpen} 
+    onRequestClose={handleCloseNewTransactionModal}  />
+
     <GlobalStyle/>
     </>
   );
