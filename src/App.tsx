@@ -12,6 +12,7 @@ import { NewTrasactionModal} from './components/NewTrasactionModal'
 //   font-size: 64px;
 //   color:#8257e6;
 //   `
+//forma de acessibilidade
 Modal.setAppElement('#root');
 
 export function App() {

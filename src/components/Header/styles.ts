@@ -5,7 +5,7 @@ export const Container = styled.header`
 `;
 
 export const Content = styled.div`
-    max-width: 1120px;
+    max-width: 1120px;  
     margin: 0 auto;
     /* 1rem = tamanho do fontsize do root (16px pra desktop) 
     16px paddin nas laterais e 160px embaixo
@@ -24,7 +24,6 @@ export const Content = styled.div`
         padding: 0 2rem;
         border-radius:0.25rem;
         height:3rem;
-
         transition: filter 0.2s;
 
         &:hover{
