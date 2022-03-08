@@ -4,7 +4,8 @@ import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { NewTrasactionModal} from './components/NewTrasactionModal'
+import { NewTrasactionModal} from './components/NewTrasactionModal';
+import { TransactionsContext, TransactionsProvider } from './TransactionsContext';
 
 
 
@@ -14,6 +15,7 @@ import { NewTrasactionModal} from './components/NewTrasactionModal'
 //   `
 //forma de acessibilidade
 Modal.setAppElement('#root');
+
 
 export function App() {
 
@@ -28,7 +30,8 @@ function handleCloseNewTransactionModal(){
 }
 
   return (
-    <>
+    //Carregas as informações que queremos consumir
+    <TransactionsProvider>
     <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
     <Dashboard/>
     
@@ -37,7 +40,6 @@ function handleCloseNewTransactionModal(){
     onRequestClose={handleCloseNewTransactionModal}  />
 
     <GlobalStyle/>
-    </>
+    </TransactionsProvider>
   );
 }
-

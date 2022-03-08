@@ -36,10 +36,11 @@ seeds(server){
 },
 
   routes(){
+    //- Isso informa pro miragejs que todas as chamadas que eu for fazer vão estar a partir do endereço “api”,Ou seja, ele deve captar todas essas chamadas
     this.namespace = 'api';
 
     this.get('/transactions', ()=> {
-      //Listar todas as transações dentro do banco de dados
+      //Listar todas as transações que estão dentro do banco de dados
       return this.schema.all('transaction')      
     })
 
@@ -49,6 +50,8 @@ seeds(server){
       const data = JSON.parse(request.requestBody)
 
       return schema.create('transaction',data);
+
+      
     })
 
   }

@@ -71,7 +71,9 @@ export const GlobalStyle = createGlobalStyle`
         left:0;
 
         display: flex;
+        /* altera a altura do modal verticalmente */
         align-items: center;
+        /* permite que fique lateralmente centralizado */
         justify-content: center;
    }
 
