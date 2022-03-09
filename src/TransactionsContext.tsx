@@ -24,7 +24,8 @@ interface TransactionsProviderProps{
  
 interface TransactionsContextData{
     transactions: Transaction[];
-    createTransaction: (transaction: TransactionInput)=> void;
+    //Promise -> toda função assincrona no js retorna uma promise
+    createTransaction: (transaction: TransactionInput)=> Promise<void>;
 }
 
 export const TransactionsContext = createContext<TransactionsContextData>(
@@ -34,20 +35,27 @@ export const TransactionsContext = createContext<TransactionsContextData>(
 
 // Ao invez de usar la no App.tsx o "TransactionContext.Provider,
 //vamos usar o TransactionProvider".
-//Precisamos avisar pro reatc que colocaremos um clidren dentro desse elemento(Onde formos usar ele), ou seja, colocar um html dentro dele
+//Precisamos avisar pro react que colocaremos um clidren dentro desse elemento(Onde formos usar ele), ou seja, colocar um html dentro dele
 export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [transactions , setTransactions] = useState<Transaction[]>([]);
 
     
     useEffect(()=>{
         // Coloca esse .transactions no final pois o data retorna as informações como um objeto e dentro desse está as transações.
-        api.get('transactions').then(response=> setTransactions(response.data.transactions))
+        api.get('transactions').then(response => setTransactions(response.data.transactions))
     },[]);
 
+// função assincrona
+    async function createTransaction(transactionInpyut:TransactionInput){
+        const response =  await api.post('/transactions', transactionInpyut);
+        const { transaction } = response.data;
 
-    function createTransaction(transaction:TransactionInput){
-
-          api.post('/transactions', transaction);
+        setTransactions(
+            [
+                ...transactions,
+                transaction,
+            ]
+        );
     }
 
 

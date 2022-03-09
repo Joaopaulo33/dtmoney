@@ -5,7 +5,9 @@ import { Container } from "./styles";
 
 
 export function TransactionsTable(){
-    const transactions = useContext(TransactionsContext)
+    //Como vai ter que pegar mais de um parâmetro temos que desestruturar o transactions, é só colocar entr { }
+    
+    const {transactions} = useContext(TransactionsContext)
     
 
     

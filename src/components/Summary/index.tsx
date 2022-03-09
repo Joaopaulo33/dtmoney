@@ -6,7 +6,9 @@ import {TransactionsContext} from '../../TransactionsContext';
 import React, {useContext} from 'react'
 export function Summary(){
     // Já temos o valor de data, vindo do contexto
-    const transactions= useContext(TransactionsContext);
+        //Como vai ter que pegar mais de um parâmetro temos que desestruturar o transactions, é só colocar entr { }
+
+    const {transactions}= useContext(TransactionsContext);
     console.log(transactions);
     return(
         <Container>
