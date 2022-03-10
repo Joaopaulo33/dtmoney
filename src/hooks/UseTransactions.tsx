@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
-import { api } from './services/api';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { api } from '../services/api';
 
 
 //para não dar erro na hora de utilizar as informações precisamos passar a interface
@@ -28,7 +28,7 @@ interface TransactionsContextData{
     createTransaction: (transaction: TransactionInput)=> Promise<void>;
 }
 
-export const TransactionsContext = createContext<TransactionsContextData>(
+ const TransactionsContext = createContext<TransactionsContextData>(
     //Aqui estava dando erro, a gente engana o react pra parar de dar esse erro
     {} as TransactionsContextData
     );
@@ -47,7 +47,13 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
 
 // função assincrona
     async function createTransaction(transactionInpyut:TransactionInput){
-        const response =  await api.post('/transactions', transactionInpyut);
+        const response =  await api.post('/transactions', {
+            ...transactionInpyut,
+            //sem essa propriedade dá erro
+            createdAt:new Date(),
+        
+        });
+
         const { transaction } = response.data;
 
         setTransactions(
@@ -65,4 +71,11 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
         </TransactionsContext.Provider>
     )
 
+}
+
+
+//Um hook sempre pode utilizar de outros hooks 
+export function useTransactions(){
+    const context = useContext(TransactionsContext);
+    return context;
 }
