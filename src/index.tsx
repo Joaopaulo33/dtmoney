@@ -15,11 +15,11 @@ seeds(server){
       {
         //id sempre tem que ter
         id: 1,
-        title:'Freelance de web',
+        title:'Freelance web',
         type:'deposit',
         category:'Dev',
-        amount:10000,
-        createdAt:new Date('2021-02-12 09:00:00'),
+        amount:7000,
+        createdAt:new Date('2021-03-16 09:00:00'),
       },
       {
         //id sempre tem que ter
@@ -28,7 +28,7 @@ seeds(server){
         type:'withdraw',
         category:'Casa',
         amount:500,
-        createdAt:new Date('2021-02-14 11:00:00'),
+        createdAt:new Date('2021-03-10 11:00:00'),
       }
     ]
   })

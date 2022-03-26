@@ -2,25 +2,17 @@ import { Container } from "./styles";
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
-import React, {useContext} from 'react'
 import { useTransactions } from "../../hooks/UseTransactions";
 export function Summary(){
     // Já temos o valor de data, vindo do contexto
-        //Como vai ter que pegar mais de um parâmetro temos que desestruturar o transactions, é só colocar entr { }
+    //Como vai ter que pegar mais de um parâmetro temos que desestruturar o transactions, é só colocar entre { }
 
     const {transactions}= useTransactions();
 
-    //Reduce => Passar por todas transações e calcular um total
-    //acc => acumulator ( valor inicial 0, indicado ali)
-    // const totalDeposits = transactions.reduce((acc,transaction)=>{
-    //     if(transaction.type === 'deposit'){
-    //         return acc + transaction.amount;
-    //     }
-    //         return acc;
-    // },0);
+   
 
-//Ao invés de fazer igual acima, vamos colocar tudo em uma função só
-
+//Reduce => Passar por todas transações e calcular um total
+//acc => acumulator ( valor inicial 0, indicado ali)
 const summary = transactions.reduce((acc, transaction)=>{
     if(transaction.type === 'deposit'){
         acc.deposits += transaction.amount;
@@ -30,7 +22,7 @@ const summary = transactions.reduce((acc, transaction)=>{
         acc.whitdraws += transaction.amount;
         acc.total -= transaction.amount;
     }
-    //reduce precisa que sempre precisa que em toda interação eu retorne o acumulator(acc) com as mudanças
+    //reduce precisa que sempre precisa que em toda interação eu retorne o acumulator(acc) com as mudanças.
     return acc;
 
 },{

@@ -13,6 +13,8 @@ import { TransactionsProvider } from './hooks/UseTransactions';
 //   font-size: 64px;
 //   color:#8257e6;
 //   `
+
+
 //forma de acessibilidade
 Modal.setAppElement('#root');
 
@@ -37,7 +39,7 @@ function handleCloseNewTransactionModal(){
     
     <NewTrasactionModal 
     isOpen={isNewTrasactionModalOpen} 
-    onRequestClose={handleCloseNewTransactionModal}  />
+    onRequestClose={handleCloseNewTransactionModal}/>
 
     <GlobalStyle/>
     </TransactionsProvider>

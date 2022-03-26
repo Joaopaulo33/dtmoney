@@ -23,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
- /* quando usuário estiver com uma tela até 1080px de largura vamos diminuir o fontsiz para 93.75%
-    e quando tiver em uma meno que 720px vai diminuir pra 87.5 porcento */
+ /* quando usuário estiver com uma tela até 1080px de largura vamos diminuir o fontsize para 93.75%
+    e quando tiver em uma menor que 720px vai diminuir pra 87.5 porcento */
     html{
     @media(max-width:1080px){
         font-size:93.75%;

@@ -21,7 +21,7 @@ interface NewTrasactionModalProps{
 
 export function NewTrasactionModal({isOpen,onRequestClose}:NewTrasactionModalProps){
 
-  const {createTransaction } = useTransactions();
+  const {createTransaction} = useTransactions();
 
   const [title, setTitle] = useState('');
   const[amount, setAmount] = useState(0);
@@ -86,7 +86,6 @@ return (
           onClick={()=>{setType('deposit');}}
           isActive={ type === 'deposit' }
           activeColor='green'
-          
           >
             <img src={incomeImg} alt="Entrada" />
             <span>Entrada</span>

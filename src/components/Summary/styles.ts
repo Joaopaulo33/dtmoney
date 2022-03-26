@@ -18,6 +18,7 @@ div{
     header{
         display:flex;
         align-items:center;
+        // Para que fiquem o mais longe possível
         justify-content:space-between;
     }
      strong{
